@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/GoalScorerOutLinearLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/GoalScorerScrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/GoalScorerLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            
+            <TextView android:id="@+id/NoConnectionTextS"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="NO connection, try later."
+              android:visibility="gone" />
+            
+            <TextView android:id="@+id/NoWSAvailableTextS"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="NO GoalScorer website available. Try later."
+              android:visibility="gone" />
+
+            <TableLayout
+                android:id="@+id/GoalScorerTable"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.3" >
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+    
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:id="@+id/progressBarGoalScorer"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:visibility="gone"/>
+</LinearLayout>
