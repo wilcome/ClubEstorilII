@@ -57,17 +57,22 @@ public class GoalScorerFragment extends Fragment{
 			TableRow row = new TableRow(getActivity());
 			for(int c = 1; c < stringTable.get(r).size(); c++ ){
 				TextView colTV = new TextView(getActivity());
-				if(r == 1 && stringTable.get(r).get(c).equals("Equipo")){
+                if(r == 0 && stringTable.get(r).get(c).equals("Jugador")){
+                    colTV.setText("Jugador");
+                }else if(r == 0 && stringTable.get(r).get(c).equals("Equipo")){
 					colTV.setText("Equipo");
-				}else if(r == 1 && stringTable.get(r).get(c).equals("G")){
+				}else if(r == 0 && stringTable.get(r).get(c).equals("G")){
 					colTV.setText("G");
-				}else if(r == 1 && stringTable.get(r).get(c).equals("G/P")){
+				}else if(r == 0 && stringTable.get(r).get(c).equals("G/P")){
 					colTV.setText("G/P");
-				}else if(r == 1 && stringTable.get(r).get(c).equals("PJ")){
+				}else if(r == 0 && stringTable.get(r).get(c).equals("PJ")){
 					colTV.setText("PJ");
 				}else{
                     if(c==1) {
-                        colTV.setText(stringTable.get(r).get(2));
+                        String name = stringTable.get(r).get(2).substring(stringTable.get(r).get(2).indexOf(",")+1);
+                        String surName = stringTable.get(r).get(2).substring(0, stringTable.get(r).get(2).indexOf(","));
+                        colTV.setText(name + " " + surName);
+                        //colTV.setText(stringTable.get(r).get(2));
                     }else if(c==2) {
                         colTV.setText(stringTable.get(r).get(1));
                     }else{
@@ -94,10 +99,10 @@ public class GoalScorerFragment extends Fragment{
                     colTV.setEllipsize(TruncateAt.END);
                     int portionWith = 0;
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
-                        portionWith = (getWithScreen()*2)/5;
+                        portionWith = (getWithScreen()*2)/12;
                         colTV.setMaxWidth(portionWith);
                     }else{
-                        portionWith = (getWithScreenOld()*2)/5;
+                        portionWith = (getWithScreenOld()*2)/12;
                         colTV.setMaxWidth(portionWith);
                     }
                 }else{
